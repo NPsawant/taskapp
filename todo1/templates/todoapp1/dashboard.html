@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo Dashboard 1</title>
+</head>
+<body>
+    <h1>Todo Dashboard new</h1>
+    <p>
+        <button><a href="/add_task" target="_blank">Add Task 1</a></button>
+    </p>
+
+{% comment %}
+    {{a}} <br>
+
+    Hi,{{user}} 
+    <br>
+    <br>
+    <hr>
+    {% if a > b %}<!--while writing keys inside the condition no need to add curly braces-->
+        <p>In if block</p>
+        {{a}} is greater  
+    {% else %}
+        <p>In Else block</p>
+        {{b}} is greater <!--while writing single only we need to add curly braces-->
+    {% endif %}
+
+    <br>
+    <br>
+    <hr>
+    <p>Loop control instruction</p>
+
+    {% for x in l %} <!-- x in [10,20,30,40,50]-->
+        {{x}} <br>
+    {% endfor %}
+    
+{% endcomment %}
+
+
+{% comment %}
+<!--all the object are present in variable t and called by a key 'data' -->
+
+{{data}} <!--we are calling the  key 'data' in wch value t  ---all the objects are present-->
+  
+
+
+<!--accessing key using loop -->
+
+{% for x in data %} <!--here we are accessing each value in data by x using for loop -->
+    {{x}} <br> <!--TaskList object (1)-->
+    <hr>
+    ID:{{x.id}} <br> <!--ID:1-->
+    TITLE:{{x.title}} <br> <!--TITLE:INSERT-->
+    DETAILS:{{x.detail}} <br> <!--DETAILS:INSERT DATA INTO DATABASE-->
+    DUE DATE :{{x.due_dt}} <br> <br><!--DUE DATE :Jan. 22, 2024-->
+{% endfor %}
+
+{% endcomment %}
+
+<!--this below table is very imp everything that is displayed on the screen (table is from below code) -->
+
+<table border="1" align="center">
+
+    <tr> <!--we are giving the heading of the tabel we have used <th> </th>-->
+        <th>Sl.no</th>
+        <th>Task Title</th>
+        <th>Task Details</th>
+        <th>Due Date</th>
+        <th>Status</th>
+        <th>Action</th>
+        <th>Edit</th>
+        <th>Delete</th>
+
+    </tr>
+
+    {% for x in data %} <!--for loop is used bcz the data add & dlt should be repetition -->
+    <tr><!--In row we are iterating the loop-->
+        <td>{{x.id}}</td> <!--data is accessed by variable.modulename-->
+        <td>{{x.title}}</td>
+        <td>{{x.detail}}</td>
+        <td>{{x.due_dt}}</td>
+        {% if x.is_completed == 0 %}
+        <td style="color: red;">Pending</td>
+        {% else %}
+        <td style="color: green;">Completed</td>
+        {% endif %}
+        
+        
+        <td><a href="/completed/{{x.id}}"><button>Mark As completed</button></a></td>
+        <td><a href="/edit/{{x.id}}"><button>Edit</button></a></td>
+        <td><a href="/delete/{{x.id}}"> <button>Delete</button></a></td>
+
+
+
+    </tr>
+    {% endfor %}<!--for loop end here-->
+
+
+
+   
+</table>
+</body>   
+</html>

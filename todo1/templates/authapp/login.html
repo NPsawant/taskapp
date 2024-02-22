@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN FORM</title>
+</head>
+<body>
+    <H2 align="center">User Login1</H2>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <table align="center">
+            <tr>
+                <td>Username :</td>
+                <td><input type="email" name="uname" id=""></td>
+
+            </tr>
+
+            <tr>
+                <td>Password:</td>
+                <td><input type="password" name="upass" id=""></td>
+            </tr>
+
+            <tr>
+                <td><input type="submit" value="Login"></td>
+            </tr>
+
+            {% if errmsg %} <!--we are using errmsg on conditional bases(if there is error then only display)-->
+             <tr>
+                <td style="color: red;">{{errmsg}}</td>
+             </tr>
+            {% endif %}
+        </table>
+
+    </form>
+    
+</body>
+</html>

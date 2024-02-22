@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo|Register</title>
+</head>
+<body>
+           <h2 align="center">Register User</h2>
+           <form method="POST" action="">
+            {% csrf_token %}
+            <table align="center">
+                <tr>
+                      <td>Enter Username:</td>
+                      <td><input type="email" name="uname" id="" placeholder="Enter valid Gmail Address"></td>
+                </tr>
+                <tr>
+                  <td>Enter Password:</td>
+                  <td><input type="password" name="upass" id=""></td>
+                </tr>
+                <tr>
+                    <td>Confirm Password:</td>
+                    <td><input type="password" name="ucpass" id=""></td>
+                </tr>
+                <tr>
+                     <td>Enter Email:</td>
+                     <td><input type="email" name="uemail" id=""></td>
+                </tr>
+                <tr>
+                       <td><input type="submit" value="Register"></td>
+                </tr>
+     </table>
+
+           </form>
+          
+</body>
+</html>
